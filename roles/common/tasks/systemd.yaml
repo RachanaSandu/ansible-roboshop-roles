@@ -1,0 +1,15 @@
+ - name: copy user service to system directory
+   ansible.builtin.template:
+      src: user.service.j2
+      dest: /etc/systemd/system/user.service
+
+ - name: systemctl deamon reload
+   ansible.builtin.service:
+      deamon_reload: true
+
+ - name: start and enable user
+   ansible.builtin.service:
+      name: user
+      state: restarted  # even app is not running we can restart
+      enabled: yes
+      

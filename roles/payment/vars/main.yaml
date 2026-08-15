@@ -1,0 +1,5 @@
+CART_HOST: cart.rachanadev.online
+USER_HOST: user.rachanadev.online
+RABBITMQ_HOST: rabbitmq.rachanadev.online
+RABBITMQ_USER: roboshop
+RABBITMQ_PASSWORD: roboshop123
