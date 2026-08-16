@@ -1,33 +1,5 @@
-# in Linux Shell, we use the cp command to copy files.
-# in Ansible, we use the ansible.builtin.copy module to copy files.  
-  - name: copy mongodb repo
-    ansible.builtin.copy:
-      src: mongo.repo
-      dest: /etc/yum.repo.d/mongo.repo
-
-  - name: install mongodb server
-    ansible.builtin.dnf:
-      name: mongodb-org
-      state: present
-
-# in Ansible , we use the ansible.builtin.service module to start and enable a service.
-  - name: start and enable mongodb
-    ansible.builtin.service:
-      name: mongodb
-      state: started
-      enables: yes
-
-# in Linux Shell, we use the sed command to find and replace text in a file.
-# in Ansible, we use the ansible.builtin.replace module to find and replace text in a file.
-  - name: allow remote connections
-    ansible.builtin.replace:
-      path: /etc/mongod.conf 
-      regexp: '127.0.0.1'
-      replace: '0.0.0.0'
-
-  - name: restart mongodb
-    ansible.builtin.service:
-      name: mongod
-      status: restarted
-
-# the ansible.builtin.service modu;e is used to start, stop, restart, reload, enable, disable., srvices such as ngix, httpd, docker, sshd, mysql, redis, mongodb, etc.,    
+- name: configure mongodb component
+  become: yes
+  hosts: mongodb
+  roles: # this will automatically load a folder called roles in current working directory.
+  - mongodb
