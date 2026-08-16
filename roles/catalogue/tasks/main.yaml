@@ -19,7 +19,7 @@
       state: present 
 
 - name: check products loaded or not 
-  ansible.builtin.command: mongosh --hosts mongodb.rachanadev.online --eval 'db.getMongo().getDBNames(). indeXof("catalogue")'
+  ansible.builtin.command: mongosh --host mongodb.rachanadev.online --eval 'db.getMongo().getDBNames().indexof("catalogue")'
   register: catalogue_output
 
 - name: print catalogue catalogue_output 
