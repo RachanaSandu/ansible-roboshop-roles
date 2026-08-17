@@ -7,11 +7,6 @@
   include_role:
     name: common
     tasks_from: maven
-  
-- name: copy shipping service
-  ansible.builtin.template:
-      src: shipping.service.j2
-      dest: /etc/systemd/system/shipping.service
 
 - name: import data
   community.mysql.mysql_db:
@@ -30,4 +25,3 @@
   include_role:
     name: common
     tasks_from: systemd
-
