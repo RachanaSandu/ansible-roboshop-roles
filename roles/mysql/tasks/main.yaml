@@ -17,7 +17,7 @@
 - name: install mysql server
   ansible.builtin.dnf:
     name: mysql-server
-    state: installed
+    state: present
 
 - name: start mysql server
   ansible.builtin.service:
@@ -33,5 +33,5 @@
   - boto3
   - botocore
 
-- name: setp root password
+- name: setup root password
   ansible.builtin.command: mysql_secure_installation --set-root-pass {{ MYSQL_ROOT_PASSWORD }}
