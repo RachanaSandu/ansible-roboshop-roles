@@ -2,3 +2,8 @@ MYSQL_HOST: mysql.rachanadev.online
 MYSQL_ROOT_USER: root
 MYSQL_ROOT_PASSWORD: RoboShop@1
 CART_HOST: cart.rachanadev.online
+
+# MYSQL_HOST: mysql.daws84s.site
+# MYSQL_ROOT_USER: root
+# MYSQL_ROOT_PASSWORD: RoboShop@1
+# CART_HOST: cart.daws84s.site
