@@ -38,17 +38,16 @@
 
 - name: import data
   community.mysql.mysql_db:
-  mport_role:
-   name: all
-   login_user: "{{ MYSQL_ROOT_USER }}"
-   login_password: "{{ MYSQL_ROOT_PASSWORD }}"
-   login_host: "{{ MYSQL_HOST }}"
-   state: import
-   target: "{{ item }}"
+    state: import
+    name: all
+    target: "{{ item }}"
+    login_host: "{{ MYSQL_HOST }}"
+    login_user: "{{ MYSQL_ROOT_USER }}"
+    login_password: "{{ MYSQL_ROOT_PASSWORD }}"
   loop:
-   - /app/db/schema.sql
-   - /app/db/app-user.sql
-   - /app/db/master-data.sql
+    - /app/db/schema.sql
+    - /app/db/app-user.sql
+    - /app/db/master-data.sql
 
 - name: systemd setup
   include_role:
