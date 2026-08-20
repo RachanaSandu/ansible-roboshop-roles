@@ -8,12 +8,7 @@
     name: common
     tasks_from: python
 
-- name: copy payment service
-  ansible.builtin.template:
-    src: payment.service.j2
-    dest: /etc/systemd/system/payment.service
-
 - name: systemd setup
   include_role:
     name: common
-    tasks_from: systemd.yaml
+    tasks_from: systemd
