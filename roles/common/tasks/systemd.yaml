@@ -7,9 +7,9 @@
    ansible.builtin.systemd_service:
      daemon_reload: true
 
- - name: start and enable user
+ - name: start and enable "{{ component }}"
    ansible.builtin.service:
-      name: user
+      name: "{{ component }}"
       state: restarted  # even app is not running we can restart
       enabled: yes
       
