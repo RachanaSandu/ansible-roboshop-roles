@@ -1,0 +1,5 @@
+- name: configure catalogue component
+  become: yes
+  hosts: catalogue
+  roles: # this will automatically load a folder called roles in current working directory.
+  - catalogue
