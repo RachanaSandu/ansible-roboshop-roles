@@ -1,5 +1,5 @@
 CATALOGUE_HOST: catalogue.rachanadev.online
-USER_HOST: user.rachanadev.online
-CART_HOST: cart.rachanadev.online
-SHIPPING_HOST: shipping.rachanadev.online
-PAYMENT_HOST: payment.rachanadev.online
+# USER_HOST: user.rachanadev.online
+# CART_HOST: cart.rachanadev.online
+# SHIPPING_HOST: shipping.rachanadev.online
+# PAYMENT_HOST: payment.rachanadev.online
