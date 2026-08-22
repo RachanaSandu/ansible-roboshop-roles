@@ -2,6 +2,44 @@
   ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
+      
+- name: install mongodb server
+  ansible.builtin.dnf:
+    name: mongodb-org
+    state: present
+
+# in Ansible , we use the ansible.builtin.service module to start and enable a service.
+- name: start and enable mongodb
+  ansible.builtin.service:
+    name: mongod
+    state: started
+    enabled: yes
+      
+
+# in Linux Shell, we use the sed command to find and replace text in a file..
+# in Ansible, we use the ansible.builtin.replace module to find and replace text in a file.
+- name: allow remote connections
+  ansible.builtin.replace:
+    path: /etc/mongod.conf 
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: restart mongodb
+  ansible.builtin.service:
+    name: mongod
+    state: restarted
+
+
+
+
+
+
+
+
+- name: copy mongodb repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
 
 - name: Install mongodb server
   ansible.builtin.dnf:
@@ -24,3 +62,4 @@
   ansible.builtin.service:
     name: mongod
     state: restarted
+
