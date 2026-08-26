@@ -22,6 +22,7 @@
   ansible.builtin.command: mongosh --host mongodb.rachanadev.online --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
   register: catalogue_output
 
+
 - name: print catalogue output 
   ansible.builtin.debug:
     msg: "{{ catalogue_output }}"
