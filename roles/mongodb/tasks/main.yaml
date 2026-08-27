@@ -30,4 +30,9 @@
     state: restarted
 
 
-
+- name: wait for mongodb to be ready
+  ansible.builtin.wait_for:
+    host: "{{ ansible_default_ipv4.address }}"
+    port: 27017
+    delay: 5
+    timeout: 60
